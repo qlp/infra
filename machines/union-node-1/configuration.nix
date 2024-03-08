@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, keys, ... }:
 
 {
   imports =
@@ -11,9 +11,7 @@
 
   networking.hostName = "union-node-1";
   networking.domain = "";
-  users.users.root.openssh.authorizedKeys.keys = [
-    ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB4rUA+CKIC1RK6NVxMaPkYIABhs5zL2Hwdxu4HSrpOH jurriaan@pruijs.nl'' # jurriaan
-  ];
+  users.users.root.openssh.authorizedKeys.keys = keys;
   services.openssh.enable = true;
   system.stateVersion = "23.11";
 }
