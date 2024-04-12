@@ -1,12 +1,12 @@
 { config, lib, pkgs, keys, ... }:
 
 {
-  # imports =
-  #   [
-  #     ./hardware-configuration.nix
-  #   ];
+  imports =
+    [
+      ./hardware-configuration.nix
+    ];
 
-  # boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "union-node-1";

@@ -20,12 +20,12 @@
             inherit system;
             modules = [
               ./machines/union-node-1/configuration.nix
-              ./modules/docker.nix
+              # ./modules/docker.nix
               union.nixosModules.unionvisor
               {
                 system.stateVersion = "23.11";
                 # Base configuration for openstack-based VPSs
-                imports = [ "${nixpkgs}/nixos/modules/virtualisation/openstack-config.nix" ];
+                # imports = [ "${nixpkgs}/nixos/modules/virtualisation/openstack-config.nix" ];
 
                 # Allow other validators to reach you
                 networking.firewall.allowedTCPPorts = [ 80 443 26656 26657 ];

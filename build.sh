@@ -1,0 +1,1 @@
+GIT_LFS_SKIP_SMUDGE=1 nixos-rebuild switch --no-build-nix --build-host root@65.109.229.248 --target-host root@65.109.229.248 --use-remote-sudo --use-substitutes --fast --flake ./#union-node-1 --show-trace --max-jobs 2
