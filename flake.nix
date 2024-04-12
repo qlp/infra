@@ -14,6 +14,7 @@
           system = "aarch64-linux";
           modules = [
             ./machines/union-node-1/configuration.nix
+            ./modules/docker.nix
             {
               _module.args = { inherit keys; };
             }
