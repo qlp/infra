@@ -11,7 +11,7 @@
     in
     {
       nixosConfigurations = {
-        testnet-9 = 
+        testnet-9 =
           let
             system = "aarch64-linux";
             pkgs = import nixpkgs { inherit system; };
