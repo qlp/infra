@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     union.url = "git+ssh://git@github.com/unionlabs/union";
   };
   outputs = { self, nixpkgs, union, ... }:

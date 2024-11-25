@@ -10,5 +10,5 @@
   boot.initrd.availableKernelModules = [ "ata_piix" "uhci_hcd" "xen_blkfront" ];
   boot.initrd.kernelModules = [ "nvme" ];
   fileSystems."/" = { device = "/dev/sdb1"; fsType = "ext4"; };
-  
+  fileSystems."/volumes/union" = { device = "/dev/disk/by-id/scsi-0HC_Volume_101677819"; fsType = "ext4"; };
 }
