@@ -1,2 +1,4 @@
-union-node-1:
-	 nixos-rebuild switch --build-host root@65.109.229.248 --target-host root@65.109.229.248 --use-substitutes --fast --flake ./#union-node-1
+deploy-testnet-9:
+	 nixos-rebuild switch --build-host root@23.88.101.17 --target-host root@23.88.101.17 --use-substitutes --fast --flake ./#testnet-9
+ssh-testnet-9:
+	ssh root@23.88.101.17
