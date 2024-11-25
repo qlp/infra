@@ -1,0 +1,11 @@
+keys:
+  # when changing the sops age key, first create a new entry + make sops-updatekeys, then delete the old one + make sops-updatekeys: age-keygen -o ~/.config/sops/age/keys.txt
+  - &q8p_sops_age_key_001 age1mx675y6l0qa05sk4t9pwnfsdsltk5ydlw3fh5qdu6jywqk5mjg7shdsxa0
+  # to extract key run on the server: nix-shell -p ssh-to-age --run 'cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age'
+  - &server_testnet_9 age186qdldatejk8ldd6zssg93s65h27gd9uphxlhp3e4w7tl9cesgfqzmpqvp
+creation_rules:
+  - path_regex: secrets/testnet-9/.*
+    key_groups:
+    - age:
+      - *q8p_sops_age_key_001
+      - *server_testnet_9
