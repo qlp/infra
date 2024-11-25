@@ -11,5 +11,5 @@
   networking.domain = "";
   services.openssh.enable = true;
   users.users.root.openssh.authorizedKeys.keys = keys;
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }
