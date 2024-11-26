@@ -16,6 +16,12 @@
         format = "binary";
         sopsFile = ../../secrets/testnet-9/node_key.json;
       };
+      "datadog/datadog_api.key" = {
+        restartUnits = [ "datadog-agent.service" ];
+        format = "binary";
+        owner = "datadog";
+        sopsFile = ../../secrets/testnet-9/datadog_api.key;
+      };
     };
   };
 }

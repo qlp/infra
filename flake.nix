@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    union.url = "git+ssh://git@github.com/unionlabs/union";
+    union.url = "github:/unionlabs/union/create-bunlde-testnet-9";
     sops-nix.url = "github:Mic92/sops-nix";
   };
   outputs = { self, nixpkgs, sops-nix, ... }:
@@ -21,10 +21,46 @@
             inherit system;
             modules = [
               sops-nix.nixosModules.sops
+
               ./machines/testnet-9/configuration.nix
+              ./machines/testnet-9/datadog.nix
               ./machines/testnet-9/sops.nix
               {
-                _module.args = { inherit keys; };
+                _module.args = { 
+                  inherit keys; 
+                   
+                   checks = {
+                      # Datadog does not handle Hetzner: https://github.com/DataDog/datadog-agent/issues/20369
+                      # Hence we need this workaround.
+                      ntp = {
+                        init_config = { };
+                        instances = [
+                          {
+                            hosts = [
+                              "0.datadog.pool.ntp.org"
+                              "1.datadog.pool.ntp.org"
+                              "2.datadog.pool.ntp.org"
+                              "3.datadog.pool.ntp.org"
+                            ];
+                          }
+                        ];
+                      };
+                      process = {
+                        instances = [
+                          { name = "uniond"; search_string = [ "uniond" ]; }
+                        ];
+                      };
+                      journald = {
+                        logs = [
+                          {
+                            type = "journald";
+                            container_mode = true;
+                          }
+                        ];
+                      };
+                    };
+                  };
+
               }
             ];
           };
