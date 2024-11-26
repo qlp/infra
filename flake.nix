@@ -4,7 +4,7 @@
     union.url = "github:/unionlabs/union/create-bunlde-testnet-9";
     sops-nix.url = "github:Mic92/sops-nix";
   };
-  outputs = { self, nixpkgs, sops-nix, ... }:
+  outputs = { self, nixpkgs, sops-nix, union, ... }:
     let
       keys = [
         ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB4rUA+CKIC1RK6NVxMaPkYIABhs5zL2Hwdxu4HSrpOH jurriaan@pruijs.nl'' # jurriaan
@@ -21,10 +21,11 @@
             inherit system;
             modules = [
               sops-nix.nixosModules.sops
-
+              union.nixosModules.unionvisor
               ./machines/testnet-9/configuration.nix
               ./machines/testnet-9/datadog.nix
               ./machines/testnet-9/sops.nix
+              ./modules/unionvisor.nix
               {
                 _module.args = { 
                   inherit keys; 

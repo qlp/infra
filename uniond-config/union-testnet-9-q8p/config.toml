@@ -72,7 +72,7 @@ priv_validator_state_file = "data/priv_validator_state.json"
 
 # TCP or UNIX socket address for CometBFT to listen on for
 # connections from an external PrivValidator process
-priv_validator_laddr = "tcp://0.0.0.0:26657"
+priv_validator_laddr = ""
 
 # Path to the JSON file containing the private key to use for node authentication in the p2p protocol
 node_key_file = "config/node_key.json"
@@ -95,7 +95,7 @@ filter_peers = false
 [rpc]
 
 # TCP or UNIX socket address for the RPC server to listen on
-laddr = "tcp://127.0.0.1:26657"
+laddr = "tcp://0.0.0.0:26657"
 
 # A list of origins a cross-domain request can be executed from
 # Default value '[]' disables cors support
@@ -262,13 +262,13 @@ laddr = "tcp://0.0.0.0:26656"
 # Address to advertise to peers for them to dial. If empty, will use the same
 # port as the laddr, and will introspect on the listener to figure out the
 # address. IP and port are required. Example: 159.89.10.97:26656
-external_address = "testnet-9.q8p.nl:26656"
+external_address = ""
 
 # Comma separated list of seed nodes to connect to
 seeds = ""
 
 # Comma separated list of nodes to keep persistent connections to
-persistent_peers = "c51bbe61ee15320533837b37268c16393d8d8b54@94.130.105.107:26656,c490aae48baa78ad1f05e58d165702c06cf61de0@138.68.159.60:26656,39b18c2be0a3d3e286c1a0ec050bc3ec2c513da9@198.19.249.10:26656"
+persistent_peers = "c51bbe61ee15320533837b37268c16393d8d8b54@94.130.105.107:26656,c490aae48baa78ad1f05e58d165702c06cf61de0@138.68.159.60:26656,39b18c2be0a3d3e286c1a0ec050bc3ec2c513da9@198.19.249.10:26656,0af46a138c052681ec5207eafd12ef6d1a4fe923@116.203.244.7:26656"
 
 # Path to address book
 addr_book_file = "config/addrbook.json"

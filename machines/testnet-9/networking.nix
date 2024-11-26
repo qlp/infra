@@ -2,8 +2,8 @@
   # This file was populated at runtime with the networking
   # details gathered from the active system.
   networking = {
-    nameservers = [ "8.8.8.8"
- ];
+    nameservers = [ "1.1.1.1" "1.0.0.1" ];
+    firewall.allowedTCPPorts = [ 443 80 26656 22 ];
     defaultGateway = "172.31.1.1";
     defaultGateway6 = {
       address = "fe80::1";
